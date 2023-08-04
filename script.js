@@ -81,9 +81,9 @@ const getUserCoordinates = () => {
   navigator.geolocation.getCurrentPosition(
     position => {
       const { latitude, longitude } = position.coords; // Get coordinates of user location
-      // Get city name from coordinates using reverse geocoding API
-      const API_URL = `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=${API_KEY}`;
-      fetch(API_URL).then(response => response.json()).then(data => {
+      
+      const REVERSE_GEOCODING_URL = `https://api.openweathermap.org/geo/1.0/reverse?lat=${latitude}&lon=${longitude}&limit=1&appid=${50bab5d9b7924a6d731d4cfa3ad36bf2}`;
+      fetch(REVERSE_GEOCODING_URL).then(response => response.json()).then(data => {
         const { name } = data[0];
         getWeatherDetails(name, latitude, longitude);
       }).catch(() => {
